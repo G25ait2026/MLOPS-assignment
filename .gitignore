@@ -1,0 +1,14 @@
+# Models
+distilbert-goodreads-genres/
+results/
+
+# Tracking & Logs
+wandb/
+eval_report.json
+genre_reviews_dict.pickle
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
