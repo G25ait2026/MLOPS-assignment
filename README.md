@@ -94,4 +94,6 @@ print(prediction)  # Output: [{'label': 'fantasy_paranormal', 'score': 0.98}]
 - **Hugging Face Model:** https://huggingface.co/charantejpeteti/distilbert-goodreads-genres
 - **GitHub Repository:** https://github.com/G25ait2026/MLOPS-assignment
 - **Dataset Source:** [UCSD Goodreads Dataset](https://sites.google.com/eng.ucsd.edu/ucsdbookgraph/reviews)
-- **W&B Dashboard:** https://wandb.ai/srajam696-charan/distilbert-goodreads-genres
+
+### Optional: Weights & Biases Dashboard
+To track training with W&B, set the `WANDB_API_KEY` environment variable before running `python train.py`. The dashboard URL will be logged in the output.
