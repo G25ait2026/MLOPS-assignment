@@ -92,6 +92,7 @@ print(prediction)  # Output: [{'label': 'fantasy_paranormal', 'score': 0.98}]
 ## Links
 
 - **Hugging Face Model:** https://huggingface.co/charantejpeteti/distilbert-goodreads-genres
+- **WANDBai:**https://wandb.ai/g25ait2026-charantej/distilbert-goodreads-genres?nw=nwuserg25ait2026
 - **GitHub Repository:** https://github.com/G25ait2026/MLOPS-assignment
 - **Dataset Source:** [UCSD Goodreads Dataset](https://sites.google.com/eng.ucsd.edu/ucsdbookgraph/reviews)
 
