@@ -48,5 +48,5 @@ The final evaluation was conducted on a held-out test set (20% of the data).
 
 ---
 **Links:**
-- **W&B Project:** [distilbert-goodreads-genres](https://wandb.ai/srajam696-charan/distilbert-goodreads-genres)
+- **W&B Project:** [distilbert-goodreads-genres](https://wandb.ai/charantejpeteti/distilbert-goodreads-genres)
 - **Hugging Face Model:** [srajam696/distilbert-goodreads-genres](https://huggingface.co/srajam696/distilbert-goodreads-genres)
