@@ -26,7 +26,7 @@ from utils import ReviewDataset, compute_metrics, build_label_maps
 
 from transformers import Trainer
 
-HF_REPO = "g25ait2026-charantej/distilbert-goodreads-genres"
+HF_REPO = "charantejpeteti/distilbert-goodreads-genres"
 EVAL_REPORT_PATH = "eval_report.json"
 
 

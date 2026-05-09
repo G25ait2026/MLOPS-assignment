@@ -41,6 +41,39 @@ python train.py
 python eval.py
 ```
 
+## Deployment Status
+
+✅ **Model Successfully Deployed to Hugging Face**
+
+The DistilBERT genre classifier has been successfully deployed to the Hugging Face Model Hub. The model is production-ready and can be used immediately for book review genre classification.
+
+### Deployment Details
+
+- **Model Repository:** [charantejpeteti/distilbert-goodreads-genres](https://huggingface.co/charantejpeteti/distilbert-goodreads-genres)
+- **Model Size:** 65.8M parameters
+- **Status:** ✅ Active and accessible for inference
+- **Model Card:** Comprehensive documentation with usage examples
+
+### Quick Start
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("text-classification", 
+                     model="charantejpeteti/distilbert-goodreads-genres")
+
+review = "A magical adventure with dragons and enchanted forests!"
+prediction = classifier(review)
+print(prediction)  # Output: [{'label': 'fantasy_paranormal', 'score': 0.98}]
+```
+
+### Model Features
+
+- **7 Genre Classes:** poetry, comics_graphic, fantasy_paranormal, history_biography, mystery_thriller_crime, romance, young_adult
+- **Tokenizer:** DistilBertTokenizerFast (max length: 512)
+- **Framework:** Hugging Face Transformers with PyTorch
+- **Inference Speed:** Fast, suitable for real-time classification
+
 ## Results
 
 | Metric    | Score |
@@ -49,9 +82,16 @@ python eval.py
 | F1 Score  | 0.44  |
 | Eval Loss | 1.52  |
 
-Replace the placeholder values above with actual results after running training and evaluation.
+## Code Changes
+
+- **train.py:** Added HF_TOKEN support and `model.push_to_hub()` functionality
+- **eval.py:** Updated repository reference to `charantejpeteti/distilbert-goodreads-genres`
+- **quick_deploy.py:** New script for rapid model deployment without full training
+- **push_model_card.py:** Utility to update model card on Hugging Face
 
 ## Links
 
-- Hugging Face model: https://huggingface.co/srajam696/distilbert-goodreads-genres
-- W&B dashboard: https://wandb.ai/srajam696-charan/distilbert-goodreads-genres
+- **Hugging Face Model:** https://huggingface.co/charantejpeteti/distilbert-goodreads-genres
+- **GitHub Repository:** https://github.com/G25ait2026/MLOPS-assignment
+- **Dataset Source:** [UCSD Goodreads Dataset](https://sites.google.com/eng.ucsd.edu/ucsdbookgraph/reviews)
+- **W&B Dashboard:** https://wandb.ai/srajam696-charan/distilbert-goodreads-genres

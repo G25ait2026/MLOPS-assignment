@@ -3,6 +3,7 @@ import pickle
 
 import torch
 import wandb
+from huggingface_hub import login
 from transformers import (
     DistilBertForSequenceClassification,
     Trainer,
@@ -25,6 +26,7 @@ SAVED_MODEL_DIR = "distilbert-goodreads-genres"
 WANDB_ENTITY = "srajam696-charan"
 WANDB_PROJECT = "distilbert-goodreads-genres"
 WANDB_RUN_NAME = "distilbert-run-1"
+HF_REPO = "charantejpeteti/distilbert-goodreads-genres"
 
 
 def build_datasets(train_encodings, train_labels_encoded, test_encodings, test_labels_encoded):
@@ -110,6 +112,20 @@ def run_training():
     tokenizer.save_pretrained(SAVED_MODEL_DIR)
 
     print(f"Model saved to {SAVED_MODEL_DIR}")
+
+    # Push to Hugging Face Hub
+    hf_token = os.environ.get("HF_TOKEN")
+    if hf_token:
+        login(token=hf_token)
+        print(f"Pushing model to Hugging Face Hub: {HF_REPO}")
+        model.push_to_hub(HF_REPO)
+        tokenizer.push_to_hub(HF_REPO)
+        hf_url = f"https://huggingface.co/{HF_REPO}"
+        print(f"✅ Model successfully pushed to: {hf_url}")
+        wandb.run.summary["huggingface_model_url"] = hf_url
+    else:
+        print("⚠️  HF_TOKEN not set. Skipping Hugging Face push.")
+
     wandb.finish()
 
     return trainer, tokenizer, test_dataset, test_labels, id2label
